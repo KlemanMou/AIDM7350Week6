@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilibili 直播弹幕映射</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="zh-CN" title="简体中文">
+            <span class="lang-text">简</span>
+        </button>
+        <button class="lang-btn" data-lang="zh-TW" title="繁體中文">
+            <span class="lang-text">繁</span>
+        </button>
+        <button class="lang-btn" data-lang="en" title="English">
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
+    <div class="main-container">
+        <!-- 标题区域 -->
+        <div class="header-section">
+            <h1 data-i18n="title">Bilibili 直播弹幕映射</h1>
+            <p class="disclaimer" data-i18n="disclaimer">由于尚未接入官方API，以下内容为默认循环内容，仅供功能演示和参考。随后输入任意直播间号码，都只循环一些随机的预制弹幕内容。</p>
+            <p class="visit-notice" data-i18n="visit_notice">跳转直播间功能真实可用，请注意跳转时的音量及画面变化。</p>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-section">
+            <div class="input-group">
+                <label for="room-id" data-i18n="room_label">直播间号:</label>
+                <input type="text" id="room-id" placeholder="例: 21686237（央视新闻）" maxlength="10" data-i18n-placeholder="room_placeholder">
+                <button id="start-btn" data-i18n="start_btn">开始映射</button>
+                <button id="visit-btn" class="visit-btn" data-i18n="visit_btn" title="跳转到直播间">跳转直播间</button>
+            </div>
+            <div class="status-text" id="status-text" data-i18n="waiting">等待输入直播间号...</div>
+        </div>
+
+        <!-- 弹幕显示区域 -->
+        <div class="danmaku-section">
+            <div class="danmaku-header" data-i18n="danmaku_title">直播弹幕</div>
+            <div class="danmaku-container" id="danmaku-container"></div>
+        </div>
+
+        <!-- 弹幕记录区域 -->
+        <div class="record-section">
+            <div class="record-header">
+                <span data-i18n="record_title">弹幕记录</span>
+                <button id="download-btn" class="download-btn" data-i18n="download_btn">下载记录</button>
+                <button id="clear-btn" class="clear-btn" data-i18n="clear_btn">清空记录</button>
+            </div>
+            <textarea id="record-text" readonly placeholder="弹幕记录会在这里显示..." data-i18n-placeholder="record_placeholder"></textarea>
+        </div>
+    </div>
+
+    <!-- 版权信息 -->
+    <footer class="footer">
+        <p id="footer-text"></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
